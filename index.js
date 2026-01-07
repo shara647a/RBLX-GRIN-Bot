@@ -19,21 +19,25 @@ client.on("interactionCreate", async (interaction) => {
     data.feedbackCount += 1;
     fs.writeFileSync("data.json", JSON.stringify(data, null, 2));
 
-    const content = interaction.options.getString("noidung");
+    const content = interaction.options.getString("message");
 
     const embed = new EmbedBuilder()
       .setAuthor({
         name: `Khách hàng ${data.feedbackCount}`,
         iconURL: interaction.user.displayAvatarURL()
       })
-      .setDescription(`• ${content}`)
+      .setDescription(`
+━━━━━━━━━━━━━━━━
+**${content}**
+━━━━━━━━━━━━━━━━
+`)
       .setColor(0x2ecc71)
       .addFields({
         name: "Thời gian mua hàng",
         value: new Date().toLocaleString("vi-VN")
       })
       .setFooter({
-        text: "TSM Store | discord.gg/tsmstore"
+        text: "RBLX GRIN HUB | Play & Grind"
       });
 
     await interaction.reply({ embeds: [embed] });
