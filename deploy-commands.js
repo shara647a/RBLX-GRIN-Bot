@@ -7,7 +7,7 @@ const commands = [
     .setDescription("Gửi feedback khách hàng")
     .addStringOption(option =>
       option
-        .setName("noidung")
+        .setName("message")
         .setDescription("Nội dung feedback")
         .setRequired(true)
     )
